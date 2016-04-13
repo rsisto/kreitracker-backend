@@ -5,31 +5,37 @@ module.exports = function(app, passport, auth) {
     var users = require('../app/controllers/users');
     var trackers = require('../app/controllers/trackers');
     var trackerpositions = require('../app/controllers/trackerpositions');
+    var usertrackers = require('../app/controllers/usertrackers');
 //    app.get('/signin', users.signin);
 //    app.get('/signup', users.signup);
 //    app.get('/signout', users.signout);
 
 
-    //Setting up the users api
+    //users
     app.get('/users', users.showAll)
     app.post('/users', users.create);
     app.delete('/users', users.deleteAll);
     app.put('/users/:userId', users.update);
     app.get('/users/:userId', users.show);
     app.delete('/users/:userId', users.destroy);
-    //Setting up the trackers api
+    //trackers
     app.get('/trackers', trackers.showAll)
     app.post('/trackers', trackers.create);
     app.delete('/trackers', trackers.deleteAll);
     app.put('/trackers/:trackerId', trackers.update);
     app.get('/trackers/:trackerId', trackers.show);
     app.delete('/trackers/:trackerId', trackers.destroy);
-	//Setting up the trackers api
+    //trackers position
     app.get('/trackerpositions', trackerpositions.showAll)
     app.post('/trackerpositions/:trackerId', trackerpositions.create);
     app.delete('/trackerpositions', trackerpositions.deleteAll);
     app.get('/trackerpositions/:trackerPositionId', trackerpositions.show);
     app.delete('/trackerpositions/:trackerPositionId', trackerpositions.destroy);
+    //user trackers
+    app.get('/usertrackers', usertrackers.showAll);
+    app.post('/usertrackers/:userId/:trackerId', usertrackers.create);
+
+
 	
 
 
