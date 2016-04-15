@@ -83,7 +83,7 @@ exports.update = function(req, res) {
   };
 
 /**
- *  Show user
+ *  Show
  */
 
 exports.show =  function(req, res) {
@@ -94,6 +94,23 @@ exports.show =  function(req, res) {
             res.json(tracker);
         });
   };
+
+
+/**
+ *  Show by tracker id
+ */
+
+exports.showByTrackerId =  function(req, res) {
+	TrackerPosition.findOne	({"trackerId": req.params.trackerId},{}, { sort: { 'created_at' : -1 } } ,function(err, tracker) {
+            if (err)
+                res.send(err);
+            res.json(tracker);
+        });
+  };
+
+
+
+
 
 
 /**
