@@ -6,6 +6,7 @@ module.exports = function(app, passport, auth) {
     var trackers = require('../app/controllers/trackers');
     var trackerpositions = require('../app/controllers/trackerpositions');
     var usertrackers = require('../app/controllers/usertrackers');
+//    var usertrackers = require('../app/controllers/authenticate');
 //    app.get('/signin', users.signin);
 //    app.get('/signup', users.signup);
 //    app.get('/signout', users.signout);
@@ -27,15 +28,19 @@ module.exports = function(app, passport, auth) {
     app.delete('/trackers/:trackerId', trackers.destroy);
     //trackers position
     app.get('/trackerpositions', trackerpositions.showAll)
-    app.post('/trackerpositions/:trackerId', trackerpositions.create);
+    app.post('/trackers/:trackerId/trackerpositions', trackerpositions.create);
     app.delete('/trackerpositions', trackerpositions.deleteAll);
     app.get('/trackerpositions/:trackerPositionId', trackerpositions.show);
+    app.get('/trackers/:trackerId/trackerpositions', trackerpositions.showByTrackerId);
     app.delete('/trackerpositions/:trackerPositionId', trackerpositions.destroy);
     //user trackers
     app.get('/usertrackers', usertrackers.showAll);
-    app.post('/usertrackers/:userId/:trackerId', usertrackers.create);
-
-
+    app.post('/users/:userId/trackers/:trackerId/usertrackers', usertrackers.create);
+    //authentication
+    //app.post('/authentication',passport.authenticate('local', {
+    //    failureRedirect: '/signin',
+    //    failureFlash: 'Invalid email or password.'
+    //}), authenticate.authentication);
 	
 
 
