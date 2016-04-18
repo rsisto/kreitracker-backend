@@ -1,21 +1,20 @@
-
 {
-    "name": "node-api",
-    "main": "server.js",
-    "dependencies": {
-        "express": "~4.0.0",
-        "mongoose": "~3.6.13",
-        "body-parser": "~1.0.1",        
-	"underscore": "latest",
-	"passport": "latest",
-        "passport-local": "latest",
-	"passport-facebook": "latest",
-        "passport-twitter": "latest",
-        "passport-github": "latest",
-        "passport-google-oauth": "latest",
-	"oauth2-server":"latest",
-	"async": "latest"
-	
-	
-    }
+  "name": "node-api",
+  "main": "server.js",
+  "dependencies": {
+    "async": "^2.0.0-rc.3",
+    "body-parser": "^1.0.2",
+    "express": "^4.13.4",
+    "jsonwebtoken": "^5.7.0",
+    "mongoose": "~3.6.13",
+    "morgan": "^1.7.0",
+    "oauth2-server": "latest",
+    "passport": "^0.3.2",
+    "passport-facebook": "latest",
+    "passport-github": "latest",
+    "passport-google-oauth": "latest",
+    "passport-local": "latest",
+    "passport-twitter": "latest",
+    "underscore": "^1.8.3"
+  }
 }

@@ -10,27 +10,40 @@ var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var gpstracker = require('gpstracker');
 var passport = require('passport');
-//var LocalStrategy = require('passport-local').Strategy;
-//var oauthserver = require('oauth2-server');
+
+//?? no se que es esto @JM
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+var morgan      = require('morgan');
+
+var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 app.use(passport.initialize());
 app.use(passport.session());
 
 
 
-var port = process.env.PORT || 8080;        // set our port
 
+
+// =======================
+// configuration =========
+// =======================
+var port = process.env.PORT || 8080;        // set our port
 var mongoose   = require('mongoose');
 var config = require('./config/config');
 var auth = require('./config/middlewares/authorization');
+mongoose.connect(config.database); // connect to our database
+app.set('superSecret', config.secret); // secret variable
 
-mongoose.connect('mongodb://localhost:27017/kreitracker'); // connect to our database
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// use morgan to log requests to the console
+app.use(morgan('dev'));
 
 //Bootstrap models
 
