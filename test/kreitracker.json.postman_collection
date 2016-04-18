@@ -1,0 +1,698 @@
+{
+	"id": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+	"name": "kreitracker",
+	"description": "",
+	"order": [
+		"6c747b09-71b4-3531-6056-f79680f464f5",
+		"5b608898-5a73-74fe-d206-02c3bb92857e",
+		"deec557b-9a2e-eb48-f35a-6d6628c70d9b",
+		"1f111c8d-db22-7c76-fafd-28f34f77ba66",
+		"9712eb78-271f-8a1a-7def-9cb096459ac1",
+		"850af254-3cb1-bcb9-be30-0c8b9a0dc309",
+		"618efd47-5958-b97e-40b8-5218e81e0779",
+		"667fc785-3558-32b4-1005-4e196926a7d0",
+		"69cc6c78-88ab-9951-2c67-68708c57341d",
+		"8feaf17f-a629-de0e-6bba-63037aedbb13",
+		"cc1a0ce6-a6fb-6566-a3c4-121de384dfb3",
+		"79501c57-18c2-b728-a9ff-f7f5b80a1483",
+		"ca448daf-f2d7-495c-f057-2390e9ff4f5a",
+		"3b5d18da-5a01-f944-cbfa-45ff05b0a4e2",
+		"b40891c5-b22d-0570-2725-f165622aec75",
+		"8de7699a-a336-0241-ead5-26247c138ca8",
+		"6a460948-ca2d-2fe3-dd29-4aca9ba4cd0b",
+		"cf4653af-0838-ef16-c1b6-41faeab7f6c8",
+		"e8bdb70c-2f2f-528e-59ff-7c482fb24cad",
+		"57dfc71b-07c6-b1db-503d-59243b8bb040"
+	],
+	"folders": [],
+	"timestamp": 1457709087082,
+	"owner": 0,
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "1f111c8d-db22-7c76-fafd-28f34f77ba66",
+			"headers": "Authorization: Basic ZGM0YjU1MWI1ZDk1YWYyZDA4YjNmNTlhOGUwMWI2Njk6ZDdjZDRmOTVhNmI3MTBiZjQyNDg4ZmQ4ZmVkZjA5ZDA=\n",
+			"url": "http://localhost:8080/api/users",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "name",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1458668509067,
+			"name": "POST USERS",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "3b5d18da-5a01-f944-cbfa-45ff05b0a4e2",
+			"headers": "",
+			"url": "http://localhost:8080/api/users/56f2c851d2a3b9e014000001?username=jona&password=1234",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [
+				{
+					"key": "username",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1458752022182,
+			"name": "DELETE TRACKER ID",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "57dfc71b-07c6-b1db-503d-59243b8bb040",
+			"headers": "",
+			"url": "http://localhost:8080/api/usertrackers/",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "username",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1460581560715,
+			"name": "GET USERTRACKER",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "5b608898-5a73-74fe-d206-02c3bb92857e",
+			"headers": "Authorization: Basic ZGM0YjU1MWI1ZDk1YWYyZDA4YjNmNTlhOGUwMWI2Njk6ZDdjZDRmOTVhNmI3MTBiZjQyNDg4ZmQ4ZmVkZjA5ZDA=\n",
+			"url": "http://localhost:8080/login",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "name",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1458668530401,
+			"name": "LOGIN",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "618efd47-5958-b97e-40b8-5218e81e0779",
+			"headers": "",
+			"url": "http://localhost:8080/api/users/56f1c3e5424c152e23000001",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "username",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "name",
+					"value": "juan",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1458685042992,
+			"name": "PUT USER ID",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "667fc785-3558-32b4-1005-4e196926a7d0",
+			"headers": "",
+			"url": "http://localhost:8080/api/users/56f2c851d2a3b9e014000001?username=jona&password=1234",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [
+				{
+					"key": "username",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1459640711111,
+			"name": "DELETE USER ID",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "69cc6c78-88ab-9951-2c67-68708c57341d",
+			"headers": "",
+			"url": "http://localhost:8080/api/trackers?username=jona&password=1234",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "username",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1458751918431,
+			"name": "GET TRACKERS",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "6a460948-ca2d-2fe3-dd29-4aca9ba4cd0b",
+			"headers": "",
+			"url": "http://localhost:8080/api/trackers/56f2c98c2817fa1c15000002/trackerpositions?username=jona&password=1234",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "username",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1460582679620,
+			"name": "POST TRACKERPOSITION TRAKERID",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "6c747b09-71b4-3531-6056-f79680f464f5",
+			"headers": "Authorization: Basic ZGM0YjU1MWI1ZDk1YWYyZDA4YjNmNTlhOGUwMWI2Njk6ZDdjZDRmOTVhNmI3MTBiZjQyNDg4ZmQ4ZmVkZjA5ZDA=\n",
+			"url": "http://localhost:8080/api/users",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "name",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1458668509067,
+			"name": "AUTHENTICATE",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "79501c57-18c2-b728-a9ff-f7f5b80a1483",
+			"headers": "Authorization: Basic ZGM0YjU1MWI1ZDk1YWYyZDA4YjNmNTlhOGUwMWI2Njk6ZDdjZDRmOTVhNmI3MTBiZjQyNDg4ZmQ4ZmVkZjA5ZDA=\n",
+			"url": "http://localhost:8080/api/trackers",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [
+				{
+					"key": "name",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1459643919058,
+			"name": "DELETE TRACKERS",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "850af254-3cb1-bcb9-be30-0c8b9a0dc309",
+			"headers": "",
+			"url": "http://localhost:8080/api/users/56f1be56cbfa3b9e22000001?username=jona&password=1234",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "username",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1458684833051,
+			"name": "GET USER ID",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "8de7699a-a336-0241-ead5-26247c138ca8",
+			"headers": "Authorization: Basic ZGM0YjU1MWI1ZDk1YWYyZDA4YjNmNTlhOGUwMWI2Njk6ZDdjZDRmOTVhNmI3MTBiZjQyNDg4ZmQ4ZmVkZjA5ZDA=\n",
+			"url": "http://localhost:8080/api/trackerpositions",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [
+				{
+					"key": "name",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1459710528900,
+			"name": "DELETE TRACKERPOSITIONS",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "8feaf17f-a629-de0e-6bba-63037aedbb13",
+			"headers": "Authorization: Basic ZGM0YjU1MWI1ZDk1YWYyZDA4YjNmNTlhOGUwMWI2Njk6ZDdjZDRmOTVhNmI3MTBiZjQyNDg4ZmQ4ZmVkZjA5ZDA=\n",
+			"url": "http://localhost:8080/api/trackers",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "name",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1459643855342,
+			"name": "POST TRACKERS",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "9712eb78-271f-8a1a-7def-9cb096459ac1",
+			"headers": "",
+			"url": "http://localhost:8080/api/users",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [
+				{
+					"key": "username",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1458751832987,
+			"name": "DELETE USERS",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "b40891c5-b22d-0570-2725-f165622aec75",
+			"headers": "",
+			"url": "http://localhost:8080/api/trackerpositions?username=jona&password=1234",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "username",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1458765008538,
+			"name": "GET TRACKERPOSITIONS",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "ca448daf-f2d7-495c-f057-2390e9ff4f5a",
+			"headers": "",
+			"url": "http://localhost:8080/api/trackers/56f2c98c2817fa1c15000002?username=jona&password=1234",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "username",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1458755871765,
+			"name": "GET TRACKER ID",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "cc1a0ce6-a6fb-6566-a3c4-121de384dfb3",
+			"headers": "",
+			"url": "http://localhost:8080/api/trackers/56f1c3e5424c152e23000001",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "username",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "098834454",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1459704783112,
+			"name": "PUT TRACKER ID",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "cf4653af-0838-ef16-c1b6-41faeab7f6c8",
+			"headers": "",
+			"url": "http://localhost:8080/api/trackers/56f2c98c2817fa1c15000002/trackerpositions?username=jona&password=1234",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "username",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1460582945348,
+			"name": "GET TRACKERPOSITION TRAKERID",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "deec557b-9a2e-eb48-f35a-6d6628c70d9b",
+			"headers": "",
+			"url": "http://localhost:8080/api/users?username=jona&password=1234",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "username",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1458683527606,
+			"name": "GET USERS",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
+			"id": "e8bdb70c-2f2f-528e-59ff-7c482fb24cad",
+			"headers": "",
+			"url": "http://localhost:8080/api/users/56f1be56cbfa3b9e22000001/trackers/56f2c98c2817fa1c15000002/usertrackers?username=jona&password=1234",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "username",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1460582726966,
+			"name": "POST USERTRACKER USER TRAKERID",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		}
+	]
+}
