@@ -13,29 +13,29 @@ module.exports = function(app, passport, auth) {
 
 
     //users
-    app.get('/users', users.showAll)
+    app.get('/users', authenticate.checkToken,users.showAll)
     app.post('/users', users.create);
-    app.delete('/users', users.deleteAll);
-    app.put('/users/:userId', users.update);
-    app.get('/users/:userId', users.show);
-    app.delete('/users/:userId', users.destroy);
+    app.delete('/users',authenticate.checkToken, users.deleteAll);
+    app.put('/users/:userId',authenticate.checkToken, users.update);
+    app.get('/users/:userId',authenticate.checkToken, users.show);
+    app.delete('/users/:userId', authenticate.checkToken,users.destroy);
     //trackers
-    app.get('/trackers', trackers.showAll)
-    app.post('/trackers', trackers.create);
-    app.delete('/trackers', trackers.deleteAll);
-    app.put('/trackers/:trackerId', trackers.update);
-    app.get('/trackers/:trackerId', trackers.show);
-    app.delete('/trackers/:trackerId', trackers.destroy);
+    app.get('/trackers',authenticate.checkToken, trackers.showAll)
+    app.post('/trackers',authenticate.checkToken, trackers.create);
+    app.delete('/trackers', authenticate.checkToken,trackers.deleteAll);
+    app.put('/trackers/:trackerId',authenticate.checkToken, trackers.update);
+    app.get('/trackers/:trackerId',authenticate.checkToken, trackers.show);
+    app.delete('/trackers/:trackerId',authenticate.checkToken, trackers.destroy);
     //trackers position
-    app.get('/trackerpositions', trackerpositions.showAll)
-    app.post('/trackers/:trackerId/trackerpositions', trackerpositions.create);
-    app.delete('/trackerpositions', trackerpositions.deleteAll);
-    app.get('/trackerpositions/:trackerPositionId', trackerpositions.show);
-    app.get('/trackers/:trackerId/trackerpositions', trackerpositions.showByTrackerId);
-    app.delete('/trackerpositions/:trackerPositionId', trackerpositions.destroy);
+    app.get('/trackerpositions',authenticate.checkToken, trackerpositions.showAll)
+    app.post('/trackers/:trackerId/trackerpositions',authenticate.checkToken, trackerpositions.create);
+    app.delete('/trackerpositions', authenticate.checkToken,trackerpositions.deleteAll);
+    app.get('/trackerpositions/:trackerPositionId',authenticate.checkToken, trackerpositions.show);
+    app.get('/trackers/:trackerId/trackerpositions', authenticate.checkToken,trackerpositions.showByTrackerId);
+    app.delete('/trackerpositions/:trackerPositionId', authenticate.checkToken,trackerpositions.destroy);
     //user trackers
-    app.get('/usertrackers', usertrackers.showAll);
-    app.post('/users/:userId/trackers/:trackerId/usertrackers', usertrackers.create);
+    app.get('/usertrackers',authenticate.checkToken, usertrackers.showAll);
+    app.post('/users/:userId/trackers/:trackerId/usertrackers', authenticate.checkToken,usertrackers.create);
     
     app.post('/authentication',
 	passport.authenticate('local', {}),
