@@ -6,7 +6,7 @@ module.exports = function(app, passport, auth) {
     var trackers = require('../app/controllers/trackers');
     var trackerpositions = require('../app/controllers/trackerpositions');
     var usertrackers = require('../app/controllers/usertrackers');
-//    var usertrackers = require('../app/controllers/authenticate');
+    var authenticate = require('../app/controllers/authenticate');
 //    app.get('/signin', users.signin);
 //    app.get('/signup', users.signup);
 //    app.get('/signout', users.signout);
@@ -36,12 +36,11 @@ module.exports = function(app, passport, auth) {
     //user trackers
     app.get('/usertrackers', usertrackers.showAll);
     app.post('/users/:userId/trackers/:trackerId/usertrackers', usertrackers.create);
-    //authentication
-    //app.post('/authentication',passport.authenticate('local', {
-    //    failureRedirect: '/signin',
-    //    failureFlash: 'Invalid email or password.'
-    //}), authenticate.authentication);
-	
+    
+    app.post('/authentication',
+	passport.authenticate('local', {}),
+	authenticate.authentication
+	);
 
 
 /*

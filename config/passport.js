@@ -27,7 +27,7 @@ module.exports = function(passport) {
             usernameField: 'username',
             passwordField: 'password'
         },
-        function(email, password, done) {
+        function(username, password, done) {
             User.findOne({
                 username: username
             }, function(err, user) {
