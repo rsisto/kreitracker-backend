@@ -1,33 +1,37 @@
 /**
- * Generic require login routing middleware
+ * Module dependencies.
  */
-exports.requiresLogin = function(req, res, next) {
-    if (!req.isAuthenticated()) {
-        return res.send(401, 'User is not authorized');
-    }
-    next();
-};
+var jwt    = require('jsonwebtoken');
+var config = require('../config');
 
-/**
- * User authorizations routing middleware
- */
-exports.user = {
-    hasAuthorization: function(req, res, next) {
-        if (req.profile.id != req.user.id) {
-            return res.send(401, 'User is not authorized');
-        }
-        next();
-    }
-};
+exports.checkToken = function(req, res, next) {
+	console.log('auth');
+	 // check header or url parameters or post parameters for token
+  	var token = req.body.token || req.query.token || req.headers['x-access-token'];
 
-/**
- * Article authorizations routing middleware
- */
-exports.article = {
-    hasAuthorization: function(req, res, next) {
-        if (req.article.user.id != req.user.id) {
-            return res.send(401, 'User is not authorized');
-        }
-        next();
-    }
+	// decode token
+	if (token) {
+	    // verifies secret and checks exp
+	    jwt.verify(token, config.secret, function(err, decoded) {      
+	      if (err) {
+		return res.json({ success: false, message: 'Failed to authenticate token.' });    
+	      } else {
+		// if everything is good, save to request for use in other routes
+		req.decoded = decoded;    
+		//return done(null, true);
+		next();
+	      }
+	    });
+
+	  } else {
+
+	    // if there is no token
+	    // return an error
+	    return res.status(403).send({ 
+		success: false, 
+		message: 'No token provided.' 
+	    });
+	    
+	  }
+
 };

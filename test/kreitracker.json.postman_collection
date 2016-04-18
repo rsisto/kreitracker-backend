@@ -22,7 +22,9 @@
 		"6a460948-ca2d-2fe3-dd29-4aca9ba4cd0b",
 		"cf4653af-0838-ef16-c1b6-41faeab7f6c8",
 		"e8bdb70c-2f2f-528e-59ff-7c482fb24cad",
-		"57dfc71b-07c6-b1db-503d-59243b8bb040"
+		"57dfc71b-07c6-b1db-503d-59243b8bb040",
+		"ce71d7bc-5393-5684-5bb6-440197a97353",
+		"d6268086-187e-1d80-b3bd-f153951cfc6c"
 	],
 	"folders": [],
 	"timestamp": 1457709087082,
@@ -301,13 +303,13 @@
 		{
 			"id": "6c747b09-71b4-3531-6056-f79680f464f5",
 			"headers": "Authorization: Basic ZGM0YjU1MWI1ZDk1YWYyZDA4YjNmNTlhOGUwMWI2Njk6ZDdjZDRmOTVhNmI3MTBiZjQyNDg4ZmQ4ZmVkZjA5ZDA=\n",
-			"url": "http://localhost:8080/api/users",
+			"url": "http://localhost:8080/api/authentication",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "POST",
 			"data": [
 				{
-					"key": "name",
+					"key": "username",
 					"value": "jona",
 					"type": "text",
 					"enabled": true
@@ -324,7 +326,7 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1458668509067,
+			"time": 1460999397736,
 			"name": "AUTHENTICATE",
 			"description": "",
 			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
@@ -599,6 +601,38 @@
 			"responses": []
 		},
 		{
+			"id": "ce71d7bc-5393-5684-5bb6-440197a97353",
+			"headers": "",
+			"url": "http://localhost:8080/api/alarms/",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "username",
+					"value": "jona",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461016329408,
+			"name": "GET ALARMS",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
 			"id": "cf4653af-0838-ef16-c1b6-41faeab7f6c8",
 			"headers": "",
 			"url": "http://localhost:8080/api/trackers/56f2c98c2817fa1c15000002/trackerpositions?username=jona&password=1234",
@@ -631,9 +665,41 @@
 			"responses": []
 		},
 		{
+			"id": "d6268086-187e-1d80-b3bd-f153951cfc6c",
+			"headers": "",
+			"url": "http://localhost:8080/api/users/12344/alarms",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "name",
+					"value": "my alam 1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "description",
+					"value": "my car",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461016165525,
+			"name": "POST ALARMS USERID",
+			"description": "",
+			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
+			"responses": []
+		},
+		{
 			"id": "deec557b-9a2e-eb48-f35a-6d6628c70d9b",
 			"headers": "",
-			"url": "http://localhost:8080/api/users?username=jona&password=1234",
+			"url": "http://localhost:8080/api/users?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwiZ2V0dGVycyI6e30sIl9pZCI6IjU3MTUxNGQ5NGFhNmRiOGExNDAwMDAwMSIsIndhc1BvcHVsYXRlZCI6ZmFsc2UsImFjdGl2ZVBhdGhzIjp7InBhdGhzIjp7Il9fdiI6ImluaXQiLCJzYWx0IjoiaW5pdCIsImhhc2hlZF9wYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJwcm92aWRlciI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfX3YiOnRydWUsInNhbHQiOnRydWUsImhhc2hlZF9wYXNzd29yZCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInByb3ZpZGVyIjp0cnVlLCJfaWQiOnRydWV9LCJtb2RpZnkiOnt9LCJyZXF1aXJlIjp7fX0sInN0YXRlTmFtZXMiOlsicmVxdWlyZSIsIm1vZGlmeSIsImluaXQiLCJkZWZhdWx0Il19fSwiaXNOZXciOmZhbHNlLCJfbWF4TGlzdGVuZXJzIjowLCJfZG9jIjp7Il9fdiI6MCwic2FsdCI6IjEzNTcwNTQ2Njc1NjkiLCJoYXNoZWRfcGFzc3dvcmQiOiI3NWU2OWZjMmQwODA2OWVmNDkxNTJiMThkNzg2YzZiMmMzZjM3YTg3IiwidXNlcm5hbWUiOiJqb25hIiwicHJvdmlkZXIiOiJsb2NhbCIsIl9pZCI6IjU3MTUxNGQ5NGFhNmRiOGExNDAwMDAwMSJ9LCJfcHJlcyI6eyJzYXZlIjpbbnVsbCxudWxsLG51bGwsbnVsbF19LCJfcG9zdHMiOnsic2F2ZSI6W119LCJpYXQiOjE0NjEwMDQ5MDksImV4cCI6MTQ2MTA5MTMwOX0.dXe8nRhLsULmu4NupYxTQIocjqxh12mLODqETa25ia8",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -656,7 +722,7 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1458683527606,
+			"time": 1461005450872,
 			"name": "GET USERS",
 			"description": "",
 			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
