@@ -24,7 +24,7 @@ exports.showAll = function(req, res) {
 exports.create = function(req, res) {
   	console.log('Post [trackers]');
 	var tracker = new Tracker(req.body);
-
+	//tracker.userId = req.params.userId;
         // save the tracker and check for errors
         tracker.save(function(err) {
         	if (err){
