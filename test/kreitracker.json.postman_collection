@@ -4,7 +4,6 @@
 	"description": "",
 	"order": [
 		"6c747b09-71b4-3531-6056-f79680f464f5",
-		"5b608898-5a73-74fe-d206-02c3bb92857e",
 		"deec557b-9a2e-eb48-f35a-6d6628c70d9b",
 		"1f111c8d-db22-7c76-fafd-28f34f77ba66",
 		"9712eb78-271f-8a1a-7def-9cb096459ac1",
@@ -21,10 +20,9 @@
 		"8de7699a-a336-0241-ead5-26247c138ca8",
 		"6a460948-ca2d-2fe3-dd29-4aca9ba4cd0b",
 		"cf4653af-0838-ef16-c1b6-41faeab7f6c8",
-		"e8bdb70c-2f2f-528e-59ff-7c482fb24cad",
-		"57dfc71b-07c6-b1db-503d-59243b8bb040",
 		"ce71d7bc-5393-5684-5bb6-440197a97353",
-		"d6268086-187e-1d80-b3bd-f153951cfc6c"
+		"d6268086-187e-1d80-b3bd-f153951cfc6c",
+		"5e3bc237-978e-2872-b6ae-1de4623a1925"
 	],
 	"folders": [],
 	"timestamp": 1457709087082,
@@ -41,7 +39,7 @@
 			"method": "POST",
 			"data": [
 				{
-					"key": "name",
+					"key": "username",
 					"value": "jona",
 					"type": "text",
 					"enabled": true
@@ -58,7 +56,7 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1458668509067,
+			"time": 1461193996454,
 			"name": "POST USERS",
 			"description": "",
 			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
@@ -97,54 +95,22 @@
 			"responses": []
 		},
 		{
-			"id": "57dfc71b-07c6-b1db-503d-59243b8bb040",
+			"id": "5e3bc237-978e-2872-b6ae-1de4623a1925",
 			"headers": "",
-			"url": "http://localhost:8080/api/usertrackers/",
+			"url": "http://localhost:8080/api/alarmsturnon/5717e8059e53d4270f000001?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwiZ2V0dGVycyI6e30sIl9pZCI6IjU3MTUxNGQ5NGFhNmRiOGExNDAwMDAwMSIsIndhc1BvcHVsYXRlZCI6ZmFsc2UsImFjdGl2ZVBhdGhzIjp7InBhdGhzIjp7Il9fdiI6ImluaXQiLCJzYWx0IjoiaW5pdCIsImhhc2hlZF9wYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJwcm92aWRlciI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfX3YiOnRydWUsInNhbHQiOnRydWUsImhhc2hlZF9wYXNzd29yZCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInByb3ZpZGVyIjp0cnVlLCJfaWQiOnRydWV9LCJtb2RpZnkiOnt9LCJyZXF1aXJlIjp7fX0sInN0YXRlTmFtZXMiOlsicmVxdWlyZSIsIm1vZGlmeSIsImluaXQiLCJkZWZhdWx0Il19fSwiaXNOZXciOmZhbHNlLCJfbWF4TGlzdGVuZXJzIjowLCJfZG9jIjp7Il9fdiI6MCwic2FsdCI6IjEzNTcwNTQ2Njc1NjkiLCJoYXNoZWRfcGFzc3dvcmQiOiI3NWU2OWZjMmQwODA2OWVmNDkxNTJiMThkNzg2YzZiMmMzZjM3YTg3IiwidXNlcm5hbWUiOiJqb25hIiwicHJvdmlkZXIiOiJsb2NhbCIsIl9pZCI6IjU3MTUxNGQ5NGFhNmRiOGExNDAwMDAwMSJ9LCJfcHJlcyI6eyJzYXZlIjpbbnVsbCxudWxsLG51bGwsbnVsbF19LCJfcG9zdHMiOnsic2F2ZSI6W119LCJpYXQiOjE0NjExOTQwNzQsImV4cCI6MTQ2MTc5NDA3NH0.MGIQUgc6QKQEGi-RVTFkeHmDZLhAMYyCFmdRRA12mSk",
 			"preRequestScript": "",
 			"pathVariables": {},
-			"method": "GET",
-			"data": [
-				{
-					"key": "username",
-					"value": "jona",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "password",
-					"value": "1234",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1460581560715,
-			"name": "GET USERTRACKER",
-			"description": "",
-			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
-			"responses": []
-		},
-		{
-			"id": "5b608898-5a73-74fe-d206-02c3bb92857e",
-			"headers": "Authorization: Basic ZGM0YjU1MWI1ZDk1YWYyZDA4YjNmNTlhOGUwMWI2Njk6ZDdjZDRmOTVhNmI3MTBiZjQyNDg4ZmQ4ZmVkZjA5ZDA=\n",
-			"url": "http://localhost:8080/login",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "POST",
+			"method": "PUT",
 			"data": [
 				{
 					"key": "name",
-					"value": "jona",
+					"value": "my alam 1",
 					"type": "text",
 					"enabled": true
 				},
 				{
-					"key": "password",
-					"value": "1234",
+					"key": "description",
+					"value": "my car",
 					"type": "text",
 					"enabled": true
 				}
@@ -154,8 +120,8 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1458668530401,
-			"name": "LOGIN",
+			"time": 1461194110282,
+			"name": "PUT TURN ON ALARMS",
 			"description": "",
 			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
 			"responses": []
@@ -239,7 +205,7 @@
 		{
 			"id": "69cc6c78-88ab-9951-2c67-68708c57341d",
 			"headers": "",
-			"url": "http://localhost:8080/api/trackers?username=jona&password=1234",
+			"url": "http://localhost:8080/api/trackers?username=jona&password=1234&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwiZ2V0dGVycyI6e30sIl9pZCI6IjU3MTUxNGQ5NGFhNmRiOGExNDAwMDAwMSIsIndhc1BvcHVsYXRlZCI6ZmFsc2UsImFjdGl2ZVBhdGhzIjp7InBhdGhzIjp7Il9fdiI6ImluaXQiLCJzYWx0IjoiaW5pdCIsImhhc2hlZF9wYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJwcm92aWRlciI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfX3YiOnRydWUsInNhbHQiOnRydWUsImhhc2hlZF9wYXNzd29yZCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInByb3ZpZGVyIjp0cnVlLCJfaWQiOnRydWV9LCJtb2RpZnkiOnt9LCJyZXF1aXJlIjp7fX0sInN0YXRlTmFtZXMiOlsicmVxdWlyZSIsIm1vZGlmeSIsImluaXQiLCJkZWZhdWx0Il19fSwiaXNOZXciOmZhbHNlLCJfbWF4TGlzdGVuZXJzIjowLCJfZG9jIjp7Il9fdiI6MCwic2FsdCI6IjEzNTcwNTQ2Njc1NjkiLCJoYXNoZWRfcGFzc3dvcmQiOiI3NWU2OWZjMmQwODA2OWVmNDkxNTJiMThkNzg2YzZiMmMzZjM3YTg3IiwidXNlcm5hbWUiOiJqb25hIiwicHJvdmlkZXIiOiJsb2NhbCIsIl9pZCI6IjU3MTUxNGQ5NGFhNmRiOGExNDAwMDAwMSJ9LCJfcHJlcyI6eyJzYXZlIjpbbnVsbCxudWxsLG51bGwsbnVsbF19LCJfcG9zdHMiOnsic2F2ZSI6W119LCJpYXQiOjE0NjExODM0NDksImV4cCI6MTQ2MTE4MzUwOX0.74K7Tz7DbJUhKZNuJBfbjprRr6DlacBbHjAUpq43C6E",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -262,7 +228,7 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1458751918431,
+			"time": 1461183767192,
 			"name": "GET TRACKERS",
 			"description": "",
 			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
@@ -438,13 +404,25 @@
 			"data": [
 				{
 					"key": "name",
-					"value": "jona",
+					"value": "jonaq",
 					"type": "text",
 					"enabled": true
 				},
 				{
 					"key": "password",
 					"value": "1234",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "userId",
+					"value": "571514d94aa6db8a14000001",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "token",
+					"value": "",
 					"type": "text",
 					"enabled": true
 				}
@@ -454,7 +432,7 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1459643855342,
+			"time": 1461183762808,
 			"name": "POST TRACKERS",
 			"description": "",
 			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
@@ -699,7 +677,7 @@
 		{
 			"id": "deec557b-9a2e-eb48-f35a-6d6628c70d9b",
 			"headers": "",
-			"url": "http://localhost:8080/api/users?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwiZ2V0dGVycyI6e30sIl9pZCI6IjU3MTUxNGQ5NGFhNmRiOGExNDAwMDAwMSIsIndhc1BvcHVsYXRlZCI6ZmFsc2UsImFjdGl2ZVBhdGhzIjp7InBhdGhzIjp7Il9fdiI6ImluaXQiLCJzYWx0IjoiaW5pdCIsImhhc2hlZF9wYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJwcm92aWRlciI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfX3YiOnRydWUsInNhbHQiOnRydWUsImhhc2hlZF9wYXNzd29yZCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInByb3ZpZGVyIjp0cnVlLCJfaWQiOnRydWV9LCJtb2RpZnkiOnt9LCJyZXF1aXJlIjp7fX0sInN0YXRlTmFtZXMiOlsicmVxdWlyZSIsIm1vZGlmeSIsImluaXQiLCJkZWZhdWx0Il19fSwiaXNOZXciOmZhbHNlLCJfbWF4TGlzdGVuZXJzIjowLCJfZG9jIjp7Il9fdiI6MCwic2FsdCI6IjEzNTcwNTQ2Njc1NjkiLCJoYXNoZWRfcGFzc3dvcmQiOiI3NWU2OWZjMmQwODA2OWVmNDkxNTJiMThkNzg2YzZiMmMzZjM3YTg3IiwidXNlcm5hbWUiOiJqb25hIiwicHJvdmlkZXIiOiJsb2NhbCIsIl9pZCI6IjU3MTUxNGQ5NGFhNmRiOGExNDAwMDAwMSJ9LCJfcHJlcyI6eyJzYXZlIjpbbnVsbCxudWxsLG51bGwsbnVsbF19LCJfcG9zdHMiOnsic2F2ZSI6W119LCJpYXQiOjE0NjEwMDQ5MDksImV4cCI6MTQ2MTA5MTMwOX0.dXe8nRhLsULmu4NupYxTQIocjqxh12mLODqETa25ia8",
+			"url": "http://localhost:8080/api/users?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwiZ2V0dGVycyI6e30sIl9pZCI6IjU3MTUxNGQ5NGFhNmRiOGExNDAwMDAwMSIsIndhc1BvcHVsYXRlZCI6ZmFsc2UsImFjdGl2ZVBhdGhzIjp7InBhdGhzIjp7Il9fdiI6ImluaXQiLCJzYWx0IjoiaW5pdCIsImhhc2hlZF9wYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJwcm92aWRlciI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfX3YiOnRydWUsInNhbHQiOnRydWUsImhhc2hlZF9wYXNzd29yZCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInByb3ZpZGVyIjp0cnVlLCJfaWQiOnRydWV9LCJtb2RpZnkiOnt9LCJyZXF1aXJlIjp7fX0sInN0YXRlTmFtZXMiOlsicmVxdWlyZSIsIm1vZGlmeSIsImluaXQiLCJkZWZhdWx0Il19fSwiaXNOZXciOmZhbHNlLCJfbWF4TGlzdGVuZXJzIjowLCJfZG9jIjp7Il9fdiI6MCwic2FsdCI6IjEzNTcwNTQ2Njc1NjkiLCJoYXNoZWRfcGFzc3dvcmQiOiI3NWU2OWZjMmQwODA2OWVmNDkxNTJiMThkNzg2YzZiMmMzZjM3YTg3IiwidXNlcm5hbWUiOiJqb25hIiwicHJvdmlkZXIiOiJsb2NhbCIsIl9pZCI6IjU3MTUxNGQ5NGFhNmRiOGExNDAwMDAwMSJ9LCJfcHJlcyI6eyJzYXZlIjpbbnVsbCxudWxsLG51bGwsbnVsbF19LCJfcG9zdHMiOnsic2F2ZSI6W119LCJpYXQiOjE0NjExODgyNDUsImV4cCI6MTQ2MTE4ODMwNX0.wn0azPj3VijK97_jTeL1M1PkKCXBwWHTdscqDTWCWBI",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -722,40 +700,8 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461005450872,
+			"time": 1461188263250,
 			"name": "GET USERS",
-			"description": "",
-			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
-			"responses": []
-		},
-		{
-			"id": "e8bdb70c-2f2f-528e-59ff-7c482fb24cad",
-			"headers": "",
-			"url": "http://localhost:8080/api/users/56f1be56cbfa3b9e22000001/trackers/56f2c98c2817fa1c15000002/usertrackers?username=jona&password=1234",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "POST",
-			"data": [
-				{
-					"key": "username",
-					"value": "jona",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "password",
-					"value": "1234",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1460582726966,
-			"name": "POST USERTRACKER USER TRAKERID",
 			"description": "",
 			"collectionId": "cc5bc3e6-490c-e10d-55ae-a2ae925691b5",
 			"responses": []

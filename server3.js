@@ -50,6 +50,7 @@ app.use(morgan('dev'));
 var models_path = __dirname + '/app/models';
 
 
+
 var walk = function(path) {
     fs.readdirSync(path).forEach(function(file) {
         var newPath = path + '/' + file;
@@ -60,6 +61,7 @@ var walk = function(path) {
                       require(newPath);
 	          }
 
+		
             }
         } else if (stat.isDirectory()) {
             walk(newPath);

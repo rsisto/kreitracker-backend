@@ -3,6 +3,9 @@
  */
 var jwt    = require('jsonwebtoken');
 var config = require('../config');
+//var alarm = require('../../app/controllers/alarms');
+//var mongoose = require('mongoose');
+//var Alarm = mongoose.model('Alarm');
 
 exports.checkToken = function(req, res, next) {
 	console.log('auth');
@@ -17,7 +20,10 @@ exports.checkToken = function(req, res, next) {
 		return res.json({ success: false, message: 'Failed to authenticate token.' });    
 	      } else {
 		// if everything is good, save to request for use in other routes
-		req.decoded = decoded;    
+		req.decoded = decoded; 
+		console.log('-------------------------------------------------------------------');
+   		console.log(decoded);
+		console.log('-------------------------------------------------------------------');
 		//return done(null, true);
 		next();
 	      }
@@ -35,3 +41,22 @@ exports.checkToken = function(req, res, next) {
 	  }
 
 };
+
+/*
+ *  Alarms authorizations routing middleware
+ */
+
+exports.alarms = {
+    hasAuthorization : function (req, res, next) {
+	var tokenUserId = req.decoded.$__._id;
+   	console.log(req.alarm);
+	if (tokenUserId != req.alarm.userId) {
+	      return res.status(403).send({ 
+			success: false, 
+			message: 'No authorized.' 
+		    });
+		};
+      	next();
+	}
+}
+

@@ -5,19 +5,20 @@ module.exports = function(app, passport, auth) {
     var users = require('../app/controllers/users');
     var trackers = require('../app/controllers/trackers');
     var trackerpositions = require('../app/controllers/trackerpositions');
-    var usertrackers = require('../app/controllers/usertrackers');
-    var authenticate = require('../app/controllers/authenticate');
+    var authenticate = require('./middlewares/authenticate');
     var alarms = require('../app/controllers/alarms');
     //var alarmtrackers = require('../app/controllers/alarmtrackers');
     var authorization = require('./middlewares/authorization');
 
-    //users
+   
     app.get('/users', authorization.checkToken,users.showAll)
     app.post('/users', users.create);
     app.delete('/users',authorization.checkToken, users.deleteAll);
     app.put('/users/:userId',authorization.checkToken, users.update);
     app.get('/users/:userId',authorization.checkToken, users.show);
     app.delete('/users/:userId', authorization.checkToken,users.destroy);
+    
+	
     //trackers
     app.get('/trackers',authorization.checkToken, trackers.showAll)
     app.post('/trackers',authorization.checkToken, trackers.create);
@@ -39,6 +40,7 @@ module.exports = function(app, passport, auth) {
     app.put('/alarms/:alarmId',authorization.checkToken, alarms.update);
     app.get('/alarms/:alarmId',authorization.checkToken, alarms.show);
     app.delete('/alarms/:alarmId', authorization.checkToken,alarms.destroy);
+    app.put('/alarmsturnon/:alarmId', authorization.checkToken,alarms.alarmToReq,auth.alarms.hasAuthorization,alarms.turnOn);
 
 /*
     //user trackers

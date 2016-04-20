@@ -2,15 +2,14 @@
 var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
-var TrackerSchema   = new Schema({
+var AlarmSchema   = new Schema({
     name: String,
-    imei: String,
-    phone: String,
+    description: String,
     userId: {
         type: Schema.ObjectId,
         ref: 'User'
-    }
-
+    },
+    kOn: Boolean
 });
 
-module.exports = mongoose.model('Tracker', TrackerSchema);
+module.exports = mongoose.model('Alarm', AlarmSchema);
