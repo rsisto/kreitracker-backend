@@ -138,20 +138,15 @@ exports.turnOn = function(req, res) {
 
 };
 
-exports.alarmToReq = function(req, res, next) {
-	Alarm.findById(req.params.alarmId, function(err, alarm) {
+exports.alarmToReq = function(req,res,next) {
+	Alarm.findById(req.params.alarmId, function(err,alarm) {
             if (err)
-                res.send(err);
-           req.alarm = alarm;
-
-	   console.log('bbb-------------------------------------------------------------------');
-   	   console.log(req.alarm);
-	   console.log('-------------------------------------------------------------------');
-	   next();
+		res.send(err);
+	     req.alarm = alarm
+	     next()
         });
-
-	
 };
+
 
 
 

@@ -382,7 +382,7 @@ router.post('/usertrackers/:user_id/:tracker_id',
 app.listen(port);
 console.log('Magic happens on port ' + port);
 
-/*
+
 
 // START THE GPS TRACKER SERVER
 // =============================================================================
@@ -447,4 +447,4 @@ server.trackers.on("connected", function(tracker){
     //Configure the tracker to notify every 30 seconds.
     tracker.trackEvery(30).seconds();
 });
-*/
+

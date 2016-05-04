@@ -3,7 +3,7 @@
  */
 var jwt    = require('jsonwebtoken');
 var config = require('../config');
-//var alarm = require('../../app/controllers/alarms');
+
 //var mongoose = require('mongoose');
 //var Alarm = mongoose.model('Alarm');
 
@@ -40,6 +40,8 @@ exports.checkToken = function(req, res, next) {
 	    
 	  }
 
+
+
 };
 
 /*
@@ -48,15 +50,26 @@ exports.checkToken = function(req, res, next) {
 
 exports.alarms = {
     hasAuthorization : function (req, res, next) {
-	var tokenUserId = req.decoded.$__._id;
-   	console.log(req.alarm);
-	if (tokenUserId != req.alarm.userId) {
-	      return res.status(403).send({ 
+	var alarms = require('../../app/controllers/alarms');
+
+	console.log("dentro del auth my="+req.params.alarmId);
+	
+	alarms.alarmToReq(req,res,function () {
+		console.log("dentro del auth my aaaaaa="+req.alarm);
+		var tokenUserId = req.decoded.$__._id;
+		if (tokenUserId != req.alarm.userId) {
+			return res.status(403).send({ 
 			success: false, 
 			message: 'No authorized.' 
-		    });
+		   	});
 		};
-      	next();
+      		
+
+		next();
+		
+		});	
+	
 	}
+
 }
 
