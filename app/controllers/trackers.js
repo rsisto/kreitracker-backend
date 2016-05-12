@@ -2,7 +2,8 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    Tracker = mongoose.model('Tracker');
+    Tracker = mongoose.model('Tracker'),
+	TrackerPosition = mongoose.model('TrackerPosition');
 
 
 /**
@@ -67,7 +68,7 @@ exports.update = function(req, res) {
                 res.send(err);
 
             tracker.phone = req.body.phone;  // update the trackers info
-
+	    tracker.alarmId = req.body.alarmId
 	    // save the tracker
             tracker.save(function(err) {
                 if (err)
@@ -110,127 +111,67 @@ exports.destroy =  function(req, res) {
         });
   };
 
+/***********************************************************************
+			GPS FUNCTIONS
+**************************************************************************/
 
+exports.connected = function(tracker){
+    
+    //Get the tracker or create it.
+    Tracker.findOne({"imei":tracker.imei}).populate("alarmId").exec(function (err, trackerDb) 
+    {
+        if (err) return handleError(err);
+	console.log('The creator is'+ trackerDb.alarmId);
 
+	if (trackerDb.alarmId.kOn) 
+		tracker.trackEvery(30).seconds();
+	else  
+		tracker.positionCancel();
 
-/**
- *  Show profile
- */
-//exports.show = function(req, res) {
-//    var user = req.profile;
+     });
+		
+      
+    console.log("tracker connected with imei:", tracker.imei);
 
-//    res.render('users/show', {
-//        title: user.name,
-//        user: user
-//    });
-//};
-
-
-
-/**
- * Auth callback
- */
-//exports.authCallback = function(req, res, next) {
-//    res.redirect('/');
-//};
-
-/**
- * Show login form
- */
-//exports.signin = function(req, res) {
-//    res.render('users/signin', {
-//        title: 'Signin',
-//        message: req.flash('error')
-//    });
-//};
-
-/**
- * Show sign up form
- */
-//exports.signup = function(req, res) {
-//    res.render('users/signup', {
-//        title: 'Sign up',
-//        user: new User()
-//    });
-//};
-
-/**
- * Logout
- */
-//exports.signout = function(req, res) {
-//    req.logout();
-//    res.redirect('/');
-//};
-
-/**
- * Session
- */
-//exports.session = function(req, res) {
-//    res.redirect('/');
-//};
-
-/**
- * Create user
- */
-
-/*
-exports.create = function(req, res) {
-    var user = new User(req.body);
-
-    user.provider = 'local';
-    user.save(function(err) {
-        if (err) {
-//            return res.render('users/signup', {
-//                errors: err.errors,
-//                user: user
-//            });
-        }
-        req.logIn(user, function(err) {
-            if (err) return next(err);
-            return res.redirect('/');
-        });
+	
+    tracker.on("position", function(position){
+    console.log("tracker new position {" + tracker.imei +  "}: lat", 
+                            position.lat, "lng", position.lng);
+    //Create the tracker position.
+    //Get the tracker or create it.
+    Tracker.findOne({"imei":tracker.imei}, function(err, trackerDb) {
+    //If tracker is null, don't log anything
+    if(trackerDb != null){
+    var pos = new TrackerPosition(); 
+    pos.lat = position.lat;
+    pos.lon = position.lng;
+    pos.trackerId = trackerDb._id;
+    // save the tracker and check for errors
+    pos.save(function(err) {
+	    if(err!=null)
+		console.log("Error storing tracker position " + err);
+	    });
+		console.log("Track position stored for imei [" + tracker.imei +  "] ");
+	    }else{
+		console.log("tracker for imei {" + tracker.imei +  "}: not registered");
+	    }
     });
-};
-
-*/
+    });
 
 
+	
+    //tracker.trackEvery(30).seconds();
+    //tracker.trackEvery(1).seconds();
+    
 
-/**
- *  Show profile
- */
-//exports.show = function(req, res) {
-//    var user = req.profile;
 
-//    res.render('users/show', {
-//        title: user.name,
-//        user: user
-//    });
-//};
 
-/**
- * Send User
- */
-//exports.me = function(req, res) {
-//    res.jsonp(req.user || null);
-//};
+ }
 
-/**
- * Find user by id
- */
 /*
-exports.user = function(req, res, next, id) {
-    User
-        .findOne({
-            _id: id
-        })
-        .exec(function(err, user) {
-            if (err) return next(err);
-            if (!user) return next(new Error('Failed to load User ' + id));
-            req.profile = user;
-            next();
-        });
-};
 
+ 
+ });
+ }
 */
 

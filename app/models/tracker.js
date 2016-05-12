@@ -9,7 +9,11 @@ var TrackerSchema   = new Schema({
     userId: {
         type: Schema.ObjectId,
         ref: 'User'
-    }
+    }, 
+    alarmId: {
+        type: Schema.ObjectId,
+        ref: 'Alarm'
+    },
 
 });
 

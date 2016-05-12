@@ -41,6 +41,10 @@ module.exports = function(app, passport, auth) {
     app.get('/alarms/:alarmId',authorization.checkToken, auth.alarms.hasAuthorization,alarms.show);
     app.delete('/alarms/:alarmId', authorization.checkToken,auth.alarms.hasAuthorization,alarms.destroy);
     app.put('/alarmsturnon/:alarmId', authorization.checkToken,auth.alarms.hasAuthorization,alarms.turnOn);
+    app.put('/alarmsturnoff/:alarmId', authorization.checkToken,auth.alarms.hasAuthorization,alarms.turnOff);
+
+
+
 
 /*
     //user trackers

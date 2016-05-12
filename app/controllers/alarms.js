@@ -114,9 +114,6 @@ exports.destroy =  function(req, res) {
   };
 
 
-/**
- *  Create an tracker
- */
 
 exports.turnOn = function(req, res) {
   	console.log('turn on [alarms]');
@@ -137,6 +134,28 @@ exports.turnOn = function(req, res) {
 
 
 };
+
+exports.turnOff = function(req, res) {
+  	console.log('turn off [alarms]');
+
+	Alarm.findById(req.params.alarmId, function(err, alarm) {
+            if (err)
+                res.send(err);
+
+	    alarm.kOn = false;
+		
+            // save the tracker
+            alarm.save(function(err) {
+                if (err)
+                    res.send(err);
+		res.json({ message: 'Alarm updated!' });
+            });
+        });
+
+
+};
+
+
 
 exports.alarmToReq = function(req,res,next) {
 	Alarm.findById(req.params.alarmId, function(err,alarm) {
