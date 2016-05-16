@@ -12,9 +12,20 @@ var mongoose = require('mongoose'),
  * User Schema
  */
 var UserSchema = new Schema({
-    name: String,
-    email: String,
-    username: String,
+    name:{
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        unique: true,
+	required: true,
+    },
+    username:{
+        type: String,
+        unique: true,
+	required: true 
+    },
     provider: String,
     hashed_password: String,
     salt: String,
