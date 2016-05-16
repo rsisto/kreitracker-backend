@@ -9,13 +9,31 @@ var mongoose = require('mongoose'),
 /**
  *  Show all users
  */
-exports.showAll = function(req, res) {
+exports.showAllAll = function(req, res) {
 	console.log('Get [trackers]');
 	Tracker.find(function(err, trackers) {
             if (err)
                 res.send(err);
             res.json(trackers);
         });   
+};
+
+/**
+ *  Show all users
+ */
+exports.showAll = function(req, res) {
+	tokenUserId = req.decoded.$__._id;
+	// find each person with a last name matching 
+	var query = Tracker.findOne({ 'userId': tokenUserId });
+	// execute the query at a later time
+	query.exec(function (err, trackers) {
+	 	if (err)  res.send(err);
+		if (trackers == null)
+			trackers = []
+		res.json(trackers);
+	})
+
+   
 };
 
 /**
@@ -32,11 +50,33 @@ exports.create = function(req, res) {
                 	res.send(err);
 			res.end();
 		}else {
-			//res.json({ message: 'User created!' });
-		       res.json(tracker);
+			res.json(tracker);
 		}
 	});
 };
+
+/**
+ *  Create an tracker in
+ */
+
+exports.createIn = function(req, res) {
+  	console.log('Post [trackers]');
+	var tracker = new Tracker(req.body);
+	//tracker.userId = req.params.userId;
+        // save the tracker and check for errors
+        
+	tracker.save(function(err) {
+        	if (err){
+                	//res.send(err);
+			//res.end();
+			console.log('create in tracker' + err);	
+		}else {
+			//res.json(tracker);
+		}
+	});
+};
+
+
 
 
 /**
@@ -93,6 +133,22 @@ exports.show =  function(req, res) {
             res.json(tracker);
         });
   };
+
+
+/**
+ *  Fond by imei
+ */
+
+exports.findByImei =  function(imei) {
+  	console.log('findByImei');
+	var query = Person.findOne({ 'name.last': 'Ghost' });
+	console.log('query');
+        console.log(query);
+	    
+	   
+        
+  };
+
 
 
 /**

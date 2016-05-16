@@ -2,9 +2,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    Alarm = mongoose.model('Alarm');
-
-
+    Alarm = mongoose.model('Alarm'), trackers = require('./trackers');
 
 /**
  *  Show all users
@@ -19,7 +17,7 @@ exports.showAll = function(req, res) {
 };
 
 /**
- *  Create an tracker
+ *  Create an alarm
  */
 
 exports.create = function(req, res) {
@@ -167,6 +165,32 @@ exports.alarmToReq = function(req,res,next) {
 };
 
 
+/**
+ *  Create the fisrt tracker
+ */
+
+exports.createFirstTracker = function(req, res) {
+  	console.log('Post [alarms]');
+	var alarm = new Alarm();
+	alarm.userId = req.decoded.$__._id;
+	alarm.name = "my first alarm";
+	alarm.description = "my first alarm";
+        alarm.kOn = true;
+        // save the alaqrm and check for errors
+        alarm.save(function(err) {
+        	if (err){
+                	res.send(err);
+			res.end();
+		}else {
+			//now the tracker
+			req.body.name = "my first tracker"
+			req.body.alarmId = alarm._id
+			req.body.userId = req.decoded.$__._id;
+    			trackers.createIn(req,res)		
+			res.json(alarm);
+		}
+	});
+};
 
 
 

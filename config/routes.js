@@ -21,6 +21,8 @@ module.exports = function(app, passport, auth) {
 	
     //trackers
     app.get('/trackers',authorization.checkToken, trackers.showAll)
+    app.get('/trackersAll',authorization.checkToken, trackers.showAllAll)
+   // app.get('/trackers',authorization.checkToken, trackers.showAll)
     app.post('/trackers',authorization.checkToken, trackers.create);
     app.delete('/trackers', authorization.checkToken,trackers.deleteAll);
     app.put('/trackers/:trackerId',authorization.checkToken, trackers.update);
@@ -42,7 +44,7 @@ module.exports = function(app, passport, auth) {
     app.delete('/alarms/:alarmId', authorization.checkToken,auth.alarms.hasAuthorization,alarms.destroy);
     app.put('/alarmsturnon/:alarmId', authorization.checkToken,auth.alarms.hasAuthorization,alarms.turnOn);
     app.put('/alarmsturnoff/:alarmId', authorization.checkToken,auth.alarms.hasAuthorization,alarms.turnOff);
-
+    app.post('/users/alarms/trackers',authorization.checkToken,alarms.createFirstTracker);
 
 
 
