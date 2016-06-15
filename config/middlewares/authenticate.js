@@ -6,8 +6,8 @@ var config = require('../../config/config');
 
 exports.authentication = function(req, res) {
 	console.log('auth');
-	//console.log(res.user);
-	//console.log(req.user);
+	console.log("res.user" + res.user);
+
 	var user = req.user;
        
 	var token = jwt.sign(user, config.secret, {
@@ -21,6 +21,7 @@ exports.authentication = function(req, res) {
           token: token
 	  //token: '1'	
 	});
+	
 };
 
 

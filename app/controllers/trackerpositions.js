@@ -3,6 +3,7 @@
  */
 var mongoose = require('mongoose'),
     TrackerPosition = mongoose.model('TrackerPosition');
+    Tracker = mongoose.model('Tracker');
 
 
 /**
@@ -88,11 +89,42 @@ exports.update = function(req, res) {
 
 exports.show =  function(req, res) {
   	console.log('Get [trackerpositions:trackerId]');
-	TrackerPosition.findById(req.params.trackerPositionId, function(err, trackerposition) {
+	
+
+
+	userId = req.decoded.$__._id;
+
+	console.log('******** userId'+userId);
+
+	
+	Tracker.findOne({"userId":userId},{},{}, function(err, trackerDb) {
+
+	console.log('******** id'+trackerDb);
+
+	TrackerPosition.findOne({"trackerId": trackerDb._id},{}, { sort: { 'created_at' : -1 } } ,function(err, tp) {
+	if (err)
+                res.send(err);
+	if (tp==null){
+		console.log('es null');
+		res.json({lat: 33,lon: 34})
+
+	}else{
+		res.json({lat: tp.lat,lon: tp.lng})
+	}        
+	})
+	})
+
+
+	/*TrackerPosition.findById(req.params.trackerPositionId, function(err, trackerposition) {
             if (err)
                 res.send(err);
-            res.json(tracker);
-        });
+*/          
+ // res.json("lat: 33,lon: 34");
+
+
+//{ message: 'Alarm updated!' }
+
+     //   });
   };
 
 

@@ -21,10 +21,6 @@ exports.checkToken = function(req, res, next) {
 	      } else {
 		// if everything is good, save to request for use in other routes
 		req.decoded = decoded; 
-		console.log('-------------------------------------------------------------------');
-   		console.log(decoded);
-		console.log('-------------------------------------------------------------------');
-		//return done(null, true);
 		next();
 	      }
 	    });

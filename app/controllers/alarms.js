@@ -190,6 +190,10 @@ exports.createFirstTracker = function(req, res) {
 			res.json(alarm);
 		}
 	});
+
+
+
+
 };
 
 

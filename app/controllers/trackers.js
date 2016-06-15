@@ -176,7 +176,15 @@ exports.connected = function(tracker){
     //Get the tracker or create it.
     Tracker.findOne({"imei":tracker.imei}).populate("alarmId").exec(function (err, trackerDb) 
     {
-        if (err) return handleError(err);
+	if (trackerDb == null) {
+		console.log('tracker no registrado');
+		//tracker.positionCancel();
+		//tracker.alarmF();
+		return;
+	}
+	console.log('a move alarm');
+	
+        if (err) return err;
 	console.log('The creator is'+ trackerDb.alarmId);
 
 	if (trackerDb.alarmId.kOn) 
