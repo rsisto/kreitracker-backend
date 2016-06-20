@@ -4,9 +4,8 @@
 var jwt    = require('jsonwebtoken');
 var config = require('../../config/config');
 
-exports.authentication = function(req, res) {
-	console.log('auth');
-	console.log("res.user" + res.user);
+exports.authentication = function(req, res, next) {
+	console.log("req.user: " + req.user);
 
 	var user = req.user;
        
@@ -21,6 +20,7 @@ exports.authentication = function(req, res) {
           token: token
 	  //token: '1'	
 	});
+	next();
 	
 };
 
