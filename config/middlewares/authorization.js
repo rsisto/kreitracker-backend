@@ -20,6 +20,8 @@ exports.checkToken = function(req, res, next) {
 		return res.json({ success: false, message: 'Failed to authenticate token.' });    
 	      } else {
 		// if everything is good, save to request for use in other routes
+
+		console.log('tocken ok');
 		req.decoded = decoded; 
 		next();
 	      }

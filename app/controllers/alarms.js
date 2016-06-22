@@ -113,6 +113,65 @@ exports.destroy =  function(req, res) {
 
 
 
+
+
+exports.turn = function(req, res) {
+  	
+
+	console.log('turn [alarms]');
+
+
+
+	console.log('******** req.decoded'+req.decoded.$__._id);
+
+	userId = req.decoded.$__._id;
+
+	Alarm.findOne({"userId":userId},{},{}, function(err, alarmDb) {
+
+	console.log('******** id'+alarmDb);
+	if (err) res.send(err);
+	    alarmDb.kOn = !alarmDb.kOn;
+            // save the tracker
+            alarmDb.save(function(err) {
+                if (err)
+                    res.send(err);
+		res.json({ message: 'Alarm updated!', kOn: alarmDb.kOn });
+            });
+	});
+
+/*
+	console.log('Get [trackerpositions:trackerId]');
+	
+	console.log('******** req.decoded'+req.decoded.$__);
+
+	userId = req.decoded.$__._id;
+
+	console.log('******** userId'+userId);
+
+	
+	Tracker.findOne({"userId":userId},{},{}, function(err, trackerDb) {
+
+	console.log('******** id'+trackerDb);
+
+	TrackerPosition.findOne({"trackerId": trackerDb._id},{}, { sort: { 'created_at' : -1 } } ,function(err, tp) {
+	if (err)
+                res.send(err);
+	if (tp==null){
+		console.log('es null');
+		res.json({lat: 33,lon: 34})
+
+	}else{
+
+		console.log('tp'+tp);
+		res.json({lat: tp.lat,lon: tp.lon})
+	}        
+	})
+	})
+
+*/
+};
+
+
 exports.turnOn = function(req, res) {
   	console.log('turn on [alarms]');
 
