@@ -90,7 +90,7 @@ exports.update = function(req, res) {
 exports.show =  function(req, res) {
   	console.log('Get [trackerpositions:trackerId]');
 	
-
+	console.log('******** req.decoded'+req.decoded.$__);
 
 	userId = req.decoded.$__._id;
 
@@ -109,22 +109,13 @@ exports.show =  function(req, res) {
 		res.json({lat: 33,lon: 34})
 
 	}else{
-		res.json({lat: tp.lat,lon: tp.lng})
+
+		console.log('tp'+tp);
+		res.json({lat: tp.lat,lon: tp.lon})
 	}        
 	})
 	})
 
-
-	/*TrackerPosition.findById(req.params.trackerPositionId, function(err, trackerposition) {
-            if (err)
-                res.send(err);
-*/          
- // res.json("lat: 33,lon: 34");
-
-
-//{ message: 'Alarm updated!' }
-
-     //   });
   };
 
 

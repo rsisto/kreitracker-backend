@@ -187,10 +187,12 @@ exports.connected = function(tracker){
         if (err) return err;
 	console.log('The creator is'+ trackerDb.alarmId);
 
-	if (trackerDb.alarmId.kOn) 
-		tracker.trackEvery(30).seconds();
-	else  
-		tracker.positionCancel();
+	//if (trackerDb.alarmId.kOn) 
+
+
+		//tracker.trackEvery(30).seconds();
+	//else  
+		//tracker.positionCancel();
 
      });
 		
@@ -204,8 +206,17 @@ exports.connected = function(tracker){
     //Create the tracker position.
     //Get the tracker or create it.
     Tracker.findOne({"imei":tracker.imei}, function(err, trackerDb) {
+
+    console.log("RRRRRRRRRRRRRRRRRRRRRRRRR " + trackerDb);
+    console.log("EEEEEEEEEEEEEEEEEEEEEEEEE " + err);
     //If tracker is null, don't log anything
     if(trackerDb != null){
+
+
+    //compare and push if alarm is true
+
+
+
     var pos = new TrackerPosition(); 
     pos.lat = position.lat;
     pos.lon = position.lng;
@@ -223,6 +234,7 @@ exports.connected = function(tracker){
     });
 
 
+    
 	
     //tracker.trackEvery(30).seconds();
     //tracker.trackEvery(1).seconds();
@@ -232,10 +244,4 @@ exports.connected = function(tracker){
 
  }
 
-/*
-
- 
- });
- }
-*/
 

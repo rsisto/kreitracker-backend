@@ -45,7 +45,8 @@ module.exports = function(app, passport, auth) {
     app.put('/alarmsturnon/:alarmId', authorization.checkToken,auth.alarms.hasAuthorization,alarms.turnOn);
     app.put('/alarmsturnoff/:alarmId', authorization.checkToken,auth.alarms.hasAuthorization,alarms.turnOff);
     app.post('/users/alarms/trackers',authorization.checkToken,alarms.createFirstTracker);
-
+    app.put('/alarmsturn', authorization.checkToken,alarms.turn);
+    
 
 
 /*
