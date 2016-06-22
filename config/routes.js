@@ -9,6 +9,7 @@ module.exports = function(app, passport, auth) {
     var alarms = require('../app/controllers/alarms');
     //var alarmtrackers = require('../app/controllers/alarmtrackers');
     var authorization = require('./middlewares/authorization');
+    var userdevice = require('../app/controllers/userdevice');
 
    
     app.get('/users', authorization.checkToken,users.showAll)
@@ -68,10 +69,7 @@ module.exports = function(app, passport, auth) {
     
 */
 
-    app.post('/authentication',
-	passport.authenticate('local', {}),
-	authenticate.authentication
-	);
+    app.post('/authentication', passport.authenticate('local', {}) , authenticate.authentication , userdevice.register);
 
 
 /*
