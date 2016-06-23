@@ -3,7 +3,9 @@
  */
 var mongoose = require('mongoose'),
     TrackerPosition = mongoose.model('TrackerPosition');
-    Tracker = mongoose.model('Tracker');
+    Tracker = mongoose.model('Tracker'),
+	Alarm = mongoose.model('Alarm')
+	;
 
 
 /**
@@ -88,31 +90,30 @@ exports.update = function(req, res) {
  */
 
 exports.show =  function(req, res) {
-  	console.log('Get [trackerpositions:trackerId]');
+  	//console.log('Get [trackerpositions:trackerId]');
 	
-	console.log('******** req.decoded'+req.decoded.$__);
+	//console.log('******** req.decoded'+req.decoded.$__);
 
 	userId = req.decoded.$__._id;
 
-	console.log('******** userId'+userId);
+	//console.log('******** userId'+userId);
 
 	
 	Tracker.findOne({"userId":userId},{},{}, function(err, trackerDb) {
 
-	console.log('******** id'+trackerDb);
+	//console.log('******** id'+trackerDb);
 
 	TrackerPosition.findOne({"trackerId": trackerDb._id},{}, { sort: { 'created_at' : -1 } } ,function(err, tp) {
 	if (err)
                 res.send(err);
-	if (tp==null){
-		console.log('es null');
-		res.json({lat: 33,lon: 34})
 
-	}else{
+		 Alarm.findOne({"userId":userId}, function(err, alarmDb) {
 
-		console.log('tp'+tp);
-		res.json({lat: tp.lat,lon: tp.lon})
-	}        
+
+			console.log(alarmDb)
+			res.json({lat: tp.lat,lon: tp.lon, triggered: alarmDb.triggered})
+		})
+
 	})
 	})
 
@@ -124,17 +125,23 @@ exports.show =  function(req, res) {
  */
 
 exports.showByTrackerId =  function(req, res) {
-	TrackerPosition.findOne	({"trackerId": req.params.trackerId},{}, { sort: { 'created_at' : -1 } } ,function(err, tracker) {
+	TrackerPosition.findOne	({"trackerId": req.params.trackerId},{}, { sort: { 'created_at' : -1 } } ,function(err, tp) {
             if (err)
                 res.send(err);
-            res.json(tracker);
+            res.json(tp);
         });
-  };
+};
 
 
-
-
-
+/*
+get the seconds positions, order by create desc (index 1)
+*/
+exports.showByTrackerIdAux =  function(trackerId,next) {
+	TrackerPosition.find({"trackerId": trackerId},{}, { sort: { 'created_at' : -1 } } ,function(err, tp) {
+	//console.log(tp[1])
+	next(err,tp[1])
+        }).limit(2);
+};
 
 /**
  *  Delete user

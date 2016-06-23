@@ -14,6 +14,7 @@ var AlarmSchema   = new Schema({
         ref: 'User'
     },
     kOn: Boolean,
+    triggered: Boolean,
     created_at: { type: Date, default: Date.now }
 });
 

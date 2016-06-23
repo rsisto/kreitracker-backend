@@ -131,11 +131,17 @@ exports.turn = function(req, res) {
 	console.log('******** id'+alarmDb);
 	if (err) res.send(err);
 	    alarmDb.kOn = !alarmDb.kOn;
+	    if 	(!alarmDb.kOn) {
+	    	alarmDb.triggered = false;
+            }
+
+
+
             // save the tracker
             alarmDb.save(function(err) {
                 if (err)
                     res.send(err);
-		res.json({ message: 'Alarm updated!', kOn: alarmDb.kOn });
+		res.json({ kOn: 'Alarm updated!', kOn: alarmDb.kOn });
             });
 	});
 
@@ -235,6 +241,7 @@ exports.createFirstTracker = function(req, res) {
 	alarm.name = "my first alarm";
 	alarm.description = "my first alarm";
         alarm.kOn = true;
+	alarm.triggered = false;
         // save the alaqrm and check for errors
         alarm.save(function(err) {
         	if (err){

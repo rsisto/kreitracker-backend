@@ -3,7 +3,9 @@
  */
 var mongoose = require('mongoose'),
     Tracker = mongoose.model('Tracker'),
-	TrackerPosition = mongoose.model('TrackerPosition');
+	TrackerPosition = mongoose.model('TrackerPosition'),
+		Alarm = mongoose.model('Alarm')	
+	;
 
 
 /**
@@ -176,47 +178,55 @@ exports.connected = function(tracker){
     //Get the tracker or create it.
     Tracker.findOne({"imei":tracker.imei}).populate("alarmId").exec(function (err, trackerDb) 
     {
-	if (trackerDb == null) {
-		console.log('tracker no registrado');
-		//tracker.positionCancel();
-		//tracker.alarmF();
-		return;
-	}
-	console.log('a move alarm');
-	
-        if (err) return err;
-	console.log('The creator is'+ trackerDb.alarmId);
+    if (trackerDb == null) {return;}
+    if (err) return err;});
 
-	//if (trackerDb.alarmId.kOn) 
-
-
-		//tracker.trackEvery(30).seconds();
-	//else  
-		//tracker.positionCancel();
-
-     });
-		
-      
-    console.log("tracker connected with imei:", tracker.imei);
-
-	
     tracker.on("position", function(position){
     console.log("tracker new position {" + tracker.imei +  "}: lat", 
                             position.lat, "lng", position.lng);
     //Create the tracker position.
     //Get the tracker or create it.
     Tracker.findOne({"imei":tracker.imei}, function(err, trackerDb) {
-
-    console.log("RRRRRRRRRRRRRRRRRRRRRRRRR " + trackerDb);
-    console.log("EEEEEEEEEEEEEEEEEEEEEEEEE " + err);
-    //If tracker is null, don't log anything
     if(trackerDb != null){
-
-
     //compare and push if alarm is true
+    
+
+    /* CHECKING ALARM, MOVEMENT AND DOING NOTIFICATION*/
+
+
+    var trackerPositions = require('./trackerpositions');    
+    Alarm.findById(trackerDb.alarmId, function(err, alarm) {
+            if (err)
+                res.send(err);
+	    if (alarm.kOn){
+		trackerPositions.showByTrackerIdAux(trackerDb.id,
+			function (err, currPosition) {
+			if (err)
+		                //console.log("ERROR:"+err);
+			
+				console.log("currPosition.lon:"+currPosition.lon);
+				console.log("position.lon:"+position.lng);
+				console.log("currPosition.lat:"+currPosition.lat);
+				console.log("position.lat:"+position.lat);
+
+
+				if (currPosition.lon != position.lng || currPosition.lat != position.lat)  {
+					//hey! that's my car!!
+					console.log("TRIGGER THE ALARM!!");
+					alarm.triggered = true;
+
+					alarm.save(function(err) {})
 
 
 
+				}
+			
+			}
+		)
+	     }
+    });
+
+    //console.log("-------------- saving ----------------");
     var pos = new TrackerPosition(); 
     pos.lat = position.lat;
     pos.lon = position.lng;
@@ -232,16 +242,5 @@ exports.connected = function(tracker){
 	    }
     });
     });
-
-
-    
-	
-    //tracker.trackEvery(30).seconds();
-    //tracker.trackEvery(1).seconds();
-    
-
-
-
  }
-
 

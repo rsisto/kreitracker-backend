@@ -21,7 +21,7 @@ exports.checkToken = function(req, res, next) {
 	      } else {
 		// if everything is good, save to request for use in other routes
 
-		console.log('tocken ok');
+		console.log('token ok');
 		req.decoded = decoded; 
 		next();
 	      }
@@ -50,10 +50,10 @@ exports.alarms = {
     hasAuthorization : function (req, res, next) {
 	var alarms = require('../../app/controllers/alarms');
 
-	console.log("dentro del auth my="+req.params.alarmId);
+	//console.log("dentro del auth my="+req.params.alarmId);
 	
 	alarms.alarmToReq(req,res,function () {
-		console.log("dentro del auth my aaaaaa="+req.alarm);
+		//console.log("dentro del auth my aaaaaa="+req.alarm);
 		var tokenUserId = req.decoded.$__._id;
 		if (tokenUserId != req.alarm.userId) {
 			return res.status(403).send({ 
